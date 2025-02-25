@@ -544,6 +544,7 @@
                 horizontalPiecesCount: piecesX,
                 verticalPiecesCount: piecesY
             });
+            puzzle.shuffle(.8);
             puzzle.registerKeyboardGestures();
             puzzle.draw();
             const timer = new PuzzleTimer;
