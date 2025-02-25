@@ -509,9 +509,10 @@
             }));
         }
     }), 0);
-    let field = document.getElementById("field");
-    if (field) {
-        let puzzleImage = field.querySelector("img");
+    if (document.getElementById("field")) {
+        let puzzleImage = new Image;
+        puzzleImage.src = "img/game/puzzle-image.webp";
+        puzzleImage.style.objectPosition = "bottom right";
         let windowWidth = window.innerWidth;
         let windowHeight = window.innerHeight;
         puzzleImage.onload = () => {
