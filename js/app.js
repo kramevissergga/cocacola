@@ -516,21 +516,34 @@
         let windowWidth = window.innerWidth;
         let windowHeight = window.innerHeight;
         puzzleImage.onload = () => {
+            let imgWidth = puzzleImage.naturalWidth;
+            let imgHeight = puzzleImage.naturalHeight;
+            let imgRatio = imgWidth / imgHeight;
+            let maxWidth = windowWidth - windowWidth / 15;
+            let maxHeight = windowHeight - windowHeight / 15;
+            let puzzleWidth = maxWidth;
+            let puzzleHeight = puzzleWidth / imgRatio;
+            if (puzzleHeight > maxHeight) {
+                puzzleHeight = maxHeight;
+                puzzleWidth = puzzleHeight * imgRatio;
+            }
+            let piecesX = 5;
+            let pieceSize = puzzleWidth / piecesX;
+            let piecesY = Math.round(puzzleHeight / pieceSize);
             const puzzle = new headbreaker.Canvas("field", {
                 width: windowWidth - windowWidth / 10,
                 height: windowHeight - windowHeight / 10,
-                pieceSize: (windowWidth > windowHeight ? windowWidth : windowHeight) / 12,
+                pieceSize: pieceSize / 1.5,
                 image: puzzleImage,
                 preventOffstageDrag: true,
                 fixed: true,
                 outline: new headbreaker.outline.Rounded
             });
-            puzzle.adjustImagesToPuzzleHeight();
+            puzzle.adjustImagesToPuzzleWidth();
             puzzle.autogenerate({
-                horizontalPiecesCount: 4,
-                verticalPiecesCount: 4
+                horizontalPiecesCount: piecesX,
+                verticalPiecesCount: piecesY
             });
-            puzzle.shuffle(.8);
             puzzle.registerKeyboardGestures();
             puzzle.draw();
             const timer = new PuzzleTimer;
@@ -542,19 +555,14 @@
                     document.getElementById("field").hidden = true;
                     const resultEl = document.querySelector(".game__result");
                     resultEl.hidden = false;
-                    console.log(`${Math.floor(timeTaken / 60)}:${(timeTaken % 60).toString().padStart(2, "0")}`);
-                    resultEl.querySelector("[data-time]").innerText = `${Math.floor(timeTaken / 60)}:${Math.round(timeTaken % 60).toString().padStart(2, "0")}`;
+                    let minutes = Math.floor(timeTaken / 60);
+                    let seconds = Math.round(timeTaken % 60);
+                    if (seconds === 60) {
+                        seconds = 0;
+                        minutes += 1;
+                    }
+                    resultEl.querySelector("[data-time]").innerText = `${minutes}:${seconds.toString().padStart(2, "0")}`;
                 }), 1e3);
-            }));
-            function updateSize() {
-                windowWidth = window.innerWidth;
-                windowHeight = window.innerHeight;
-            }
-            [ "resize", "DOMContentLoaded" ].forEach((event => {
-                window.addEventListener(event, (() => {
-                    updateSize();
-                    puzzle.redraw();
-                }));
             }));
         };
         class PuzzleTimer {
@@ -567,8 +575,7 @@
             }
             stop() {
                 this.endTime = performance.now();
-                const result = (this.endTime - this.startTime) / 1e3;
-                return result;
+                return (this.endTime - this.startTime) / 1e3;
             }
         }
     }
