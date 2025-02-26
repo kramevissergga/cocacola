@@ -547,7 +547,6 @@ body {
 }
 .main__title {
   color: #fff;
-  font-style: normal;
   font-family: "TCCC Unity CYR",sans-serif;
   font-weight: 600;
   line-height: 140%;
@@ -573,6 +572,9 @@ body {
   position: relative;
   -webkit-transform: rotate(30deg);
   transform: rotate(30deg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-family: "TCCC Unity",sans-serif
 }
 .main__button span {
@@ -587,8 +589,8 @@ body {
   will-change: transform;
   height: 100%;
   transition: all .3s;
-  -webkit-filter: drop-shadow(0 1rem .25rem rgba(0, 0, 0, .25));
-  filter: drop-shadow(0 1rem .25rem rgba(0, 0, 0, .25))
+  -webkit-filter: drop-shadow(0 1rem .25rem rgba(0, 0, 0, .6));
+  filter: drop-shadow(0 1rem .25rem rgba(0, 0, 0, .6))
 }
 .page-home__registration {
   min-height: 100dvh;
@@ -857,8 +859,8 @@ body {
     width: 43.15vh!important
   }
   .main__button svg {
-    -webkit-filter: drop-shadow(0 1.48vh .37vh rgba(0, 0, 0, .25))!important;
-    filter: drop-shadow(0 1.48vh .37vh rgba(0, 0, 0, .25))!important
+    -webkit-filter: drop-shadow(0 1.48vh .37vh rgba(0, 0, 0, .6))!important;
+    filter: drop-shadow(0 1.48vh .37vh rgba(0, 0, 0, .6))!important
   }
 }
 @media (min-width:47.99875em) {
@@ -1113,7 +1115,8 @@ body {
   .main__body {
     gap: 3.8125rem;
     flex-direction: column-reverse;
-    position: relative
+    position: relative;
+    align-items: center
   }
   .main__body::before {
     content: "";
@@ -1126,6 +1129,9 @@ body {
     aspect-ratio: 375/362;
     -webkit-transform: translateY(-13.535912%);
     transform: translateY(-13.535912%)
+  }
+  .main__title {
+    text-align: center
   }
   .main__logo {
     max-width: 20.9375rem
@@ -1238,10 +1244,10 @@ body {
     padding-left: 2.5625rem
   }
   .main__button {
-    font-size: 1rem
+    font-size: 1.125rem
   }
   .main__button {
-    width: 11.5625rem
+    width: 14.375rem
   }
   .form-reg__title {
     font-size: 2.5rem
@@ -1384,24 +1390,24 @@ body {
       padding-left: calc(2.5625rem + 3.8125*(100vw - 23.4375rem)/ 62.75)
     }
   }
-  @supports (font-size:clamp(1rem ,0.5331175299rem + 1.9920318725vw ,2.25rem)) {
+  @supports (font-size:clamp(1.125rem ,0.7048057769rem + 1.7928286853vw ,2.25rem)) {
     .main__button {
-      font-size: clamp(1rem ,.5331175299rem + 1.9920318725vw ,2.25rem)
+      font-size: clamp(1.125rem ,.7048057769rem + 1.7928286853vw ,2.25rem)
     }
   }
-  @supports not (font-size:clamp(1rem ,0.5331175299rem + 1.9920318725vw ,2.25rem)) {
+  @supports not (font-size:clamp(1.125rem ,0.7048057769rem + 1.7928286853vw ,2.25rem)) {
     .main__button {
-      font-size: calc(1rem + 1.25*(100vw - 23.4375rem)/ 62.75)
+      font-size: calc(1.125rem + 1.125*(100vw - 23.4375rem)/ 62.75)
     }
   }
-  @supports (width:clamp(11.5625rem ,5.0028012948rem + 27.9880478088vw ,29.125rem)) {
+  @supports (width:clamp(14.375rem ,8.8657868526rem + 23.5059760956vw ,29.125rem)) {
     .main__button {
-      width: clamp(11.5625rem ,5.0028012948rem + 27.9880478088vw ,29.125rem)
+      width: clamp(14.375rem ,8.8657868526rem + 23.5059760956vw ,29.125rem)
     }
   }
-  @supports not (width:clamp(11.5625rem ,5.0028012948rem + 27.9880478088vw ,29.125rem)) {
+  @supports not (width:clamp(14.375rem ,8.8657868526rem + 23.5059760956vw ,29.125rem)) {
     .main__button {
-      width: calc(11.5625rem + 17.5625*(100vw - 23.4375rem)/ 62.75)
+      width: calc(14.375rem + 14.75*(100vw - 23.4375rem)/ 62.75)
     }
   }
   @supports (font-size:clamp(2.5rem ,2.1498381474rem + 1.4940239044vw ,3.4375rem)) {
@@ -1453,7 +1459,7 @@ body {
   .main__button:hover svg {
     -webkit-transform: scale(.95);
     transform: scale(.95);
-    -webkit-filter: drop-shadow(0 .625rem .25rem rgba(0, 0, 0, .25));
-    filter: drop-shadow(0 .625rem .25rem rgba(0, 0, 0, .25))
+    -webkit-filter: drop-shadow(0 .625rem .25rem rgba(0, 0, 0, .6));
+    filter: drop-shadow(0 .625rem .25rem rgba(0, 0, 0, .6))
   }
 }
