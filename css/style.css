@@ -863,6 +863,12 @@ body {
     filter: drop-shadow(0 1.48vh .37vh rgba(0, 0, 0, .6))!important
   }
 }
+@media (min-width:47.99875em)and (max-height:67.5em)and (any-hover:hover) {
+  .main__button:hover svg {
+    -webkit-filter: drop-shadow(0 1vh .37vh rgba(0, 0, 0, .6))!important;
+    filter: drop-shadow(0 1vh .37vh rgba(0, 0, 0, .6))!important
+  }
+}
 @media (min-width:47.99875em) {
   .registration__container {
     display: grid;
