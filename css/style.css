@@ -235,8 +235,7 @@ body {
 }
 .select__scroll {
   overflow-y: auto;
-  overflow-x: hidden;
-  max-height: 12.5rem
+  overflow-x: hidden
 }
 .select__option {
   width: 100%;
@@ -629,15 +628,15 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  aspect-ratio: 710/220
+  aspect-ratio: 710/220;
+  border-radius: 1rem 1rem 0 0
 }
 .registration__form>* {
   position: relative
 }
 .form-reg {
   border-radius: 1rem;
-  background: #fff;
-  overflow: hidden
+  background: #fff
 }
 .form-reg__title {
   color: #e62b29;
