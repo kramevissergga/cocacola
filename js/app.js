@@ -11622,7 +11622,9 @@
                     image: puzzleImage,
                     mergeInteractivity: true,
                     outline: new src.outline.Rounded,
-                    painter: new src.painters.Konva
+                    painter: new src.painters.Konva,
+                    preventOffstageDrag: true,
+                    fixed: true
                 });
                 puzzle.puzzle.attachConnectionRequirement(((one, other) => one.correctlyConnectedWith(other)));
                 puzzle.adjustImagesToPuzzleWidth();
