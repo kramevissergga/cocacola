@@ -173,6 +173,7 @@ body {
   display: flex;
   min-width: 0;
   align-items: center;
+  justify-content: space-between;
   gap: .625rem;
   padding: 1.25rem 1.375rem
 }
@@ -199,7 +200,8 @@ body {
   flex: 1 1 auto;
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap
+  white-space: nowrap;
+  max-width: 21.6875rem
 }
 .select__text {
   flex: 1 1 auto;
@@ -619,7 +621,8 @@ body {
   aspect-ratio: 530/441
 }
 .registration__form {
-  position: relative
+  position: relative;
+  max-width: 44.375rem
 }
 .registration__form::before {
   content: "";
@@ -633,6 +636,9 @@ body {
 }
 .registration__form>* {
   position: relative
+}
+.registration__form .select {
+  max-width: 100%
 }
 .form-reg {
   border-radius: 1rem;
